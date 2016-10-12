@@ -1,0 +1,96 @@
+<div class="auth-main">
+  <div class="auth-block">
+    <h1>Sign up to Tu_Tu</h1>
+    <a routerLink="/login" class="auth-link">Already have an Tu-Tu account? Sign in!</a>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
+      <div class="form-group row" [ngClass]="{'has-error': (!name.valid && name.touched), 'has-success': (name.valid && name.touched)}">
+        <label for="inputName3" class="col-sm-2 control-label">Name</label>
+
+        <div class="col-sm-10">
+          <input [formControl]="name" type="text" class="form-control" id="inputName3" placeholder="Full Name">
+        </div>
+        <div *ngIf="name.pending">
+          <i class="fa fa-spinner fa-spin fa-2x"></i>
+          Checking..
+        </div>
+      </div>
+      <div class="form-group row" [ngClass]="{'has-error': (!email.valid && email.touched), 'has-success': (email.valid && email.touched)}">
+        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+
+        <div class="col-sm-10">
+          <input [formControl]="email" type="email" class="form-control" id="inputEmail3" placeholder="Email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+        </div>
+        <div *ngIf="email.pending">
+          <i class="fa fa-spinner fa-spin fa-2x"></i>
+          Checking..
+        </div>
+        
+        <div *ngIf="email.touched && email.errors">
+          <div *ngIf="email.errors.required" class="col-sm-10 form-control" id="inputEmail3">
+                Email is required.
+          </div>
+          <div *ngIf="email.errors.cannotContainSpace" class="col-sm-10 form-control" id="inputEmail3">
+                Cannot contain white spcae in E-mail.
+          </div>
+          <div *ngIf="email.errors.pattern" class="col-sm-10 form-control" id="inputEmail3">
+                Please Enter a valid Email.
+          </div>
+          <div *ngIf="email.errors.ShouldBeUnique" class="col-sm-10 form-control" id="inputEmail3">
+                Please Chooses an available User Name
+          </div>
+        </div>
+      </div>
+      <div class="form-group row" [ngClass]="{'has-error': (!company.valid && company.touched), 'has-success': (company.valid && company.touched)}">
+        <label for="inputCompany" class="col-sm-2 control-label">Company</label>
+
+        <div class="col-sm-10">
+          <input [formControl]="company" type="text" class="form-control" id="inputCompany" placeholder="Company">
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-error': (!password.valid && password.touched), 'has-success': (password.valid && password.touched)}">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+
+        <div class="col-sm-10">
+          <input [formControl]="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          <span *ngIf="password.touched && password.errors">
+            <span *ngIf="password.errors.required" class="help-block sub-little-text" id="inputEmail3">
+                  Password is required.
+            </span>
+            <span *ngIf="password.errors.cannotContainSpace" class="help-block sub-little-text" id="inputEmail3">
+                  Cannot contain white spcae in Password.
+            </span>
+            <span *ngIf="password.errors.passwordStrength" class="help-block sub-little-text" id="inputEmail3">
+                  {{password.errors.passwordStrength}}
+            </span>
+         </span>
+        </div>
+        
+      </div>
+      <div class="form-group row" [ngClass]="{'has-error': (!repeatPassword.valid && repeatPassword.touched), 'has-success': (repeatPassword.valid && repeatPassword.touched)}">
+        <label for="inputPassword4" class="col-sm-2 control-label">Repeat</label>
+
+        <div class="col-sm-10">
+          <input [formControl]="repeatPassword" type="password" class="form-control" id="inputPassword4" placeholder="Repeat">
+          <span *ngIf="!passwords.valid && (password.touched || repeatPassword.touched) && password.value != repeatPassword.value" class="help-block sub-little-text">Passwords don't match.</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button  type="submit" class="btn btn-default btn-auth">Sign up</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="auth-sep"><span><span>or Sign up with one click</span></span></div>
+
+    <div class="al-share-auth">
+      <ul class="al-share clearfix">
+        <li><i class="socicon socicon-facebook" title="Share on Facebook"></i></li>
+        <li><i class="socicon socicon-twitter" title="Share on Twitter"></i></li>
+        <li><i class="socicon socicon-google" title="Share on Google Plus"></i></li>
+      </ul>
+    </div>
+  </div>
+</div>

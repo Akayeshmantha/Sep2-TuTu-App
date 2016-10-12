@@ -1,0 +1,4 @@
+D:\SLIIT\New Tu-Tu\sep-tutu\Web-Api\Tu-Tu\Tu-Tu.Util\bin\Debug\Tu-Tu.Util.dll
+D:\SLIIT\New Tu-Tu\sep-tutu\Web-Api\Tu-Tu\Tu-Tu.Util\bin\Debug\Tu-Tu.Util.pdb
+D:\SLIIT\New Tu-Tu\sep-tutu\Web-Api\Tu-Tu\Tu-Tu.Util\obj\Debug\Tu-Tu.Util.dll
+D:\SLIIT\New Tu-Tu\sep-tutu\Web-Api\Tu-Tu\Tu-Tu.Util\obj\Debug\Tu-Tu.Util.pdb
